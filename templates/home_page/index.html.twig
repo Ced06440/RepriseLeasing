@@ -1,0 +1,358 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Reprise de leasing. Trouvez un acheteur pour votre leasing
+{% endblock %}
+
+
+{% block content %}
+
+<!-- slider_area_start -->
+	<div class="slider_area">
+			<div class="single_slider  d-flex align-items-center justify-content-center slider_bg_1">
+				<div class="container">
+					<div class="row">
+						<div class="col-xl-12">
+							<div class="slider_text text-center">
+								<h3>Reprenez le contrôle de votre leasing</h3>
+								<p>Reprise de leasing est là pour vous aider à trouver une solution rapide et efficace.</p>
+								<button class="btn btn-warning mt-3 btn-lg">Déposez votre annonce gratuitement</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- slider_area_end -->
+
+	<!-- offers_area_start -->
+	<div class="offers_area mt-4">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-12">
+					<div class="section_title text-center mb-4">
+						<h3>Les bonnes affaires</h3>
+					</div>
+				</div>
+			</div>
+				<!-- 2card	-->
+			<div
+				id="ads">
+				<!-- Category Card -->
+				<div class="col-md-4">
+					<div class="card rounded p-3">
+						<div class="card-image">
+							<span class="card-notify-badge">6 mois</span>
+							<span class="card-notify-year">LOA</span>
+							<img class="img-fluid" src="./assets/image/annonce/voiture3.jpg" alt="Alternate Text"/>
+						</div>
+						<h3 class="text-center">Mazda</h3>
+						<div class="card-image-overlay m-auto text-center">
+							<span class="card-detail-badge p-2">128,53€/mois</span>
+							<span class="card-detail-badge p-2">13500€</span>
+							<btn class="btn btn-warning p-2">Voir la voiture</btn>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 2 card end -->
+
+
+	<div class="album py-5 bg-body-tertiary">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xl-12">
+					<div class="section_title text-center mb-4">
+						<h3>Annonces</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="input-group mb-3">
+
+					<div class="col-xl-2 m-2">
+						<input type="text" class="form-control" placeholder="Recherche" aria-label="Username" aria-describedby="basic-addon1">
+					</div>
+
+					<div class="col-xl-1 m-2">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+							<label class="form-check-label" for="flexCheckDefault">
+								Climatisation
+							</label>
+						</div>
+
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+							<label class="form-check-label" for="flexCheckDefault">
+								Essence
+							</label>
+						</div>
+
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+							<label class="form-check-label" for="flexCheckDefault">
+								Gasoil
+							</label>
+						</div>
+					</div>
+
+					<div class="col-xl-2 m-2">
+						<select class="form-select form-select-lg" id="inputGroupSelect01">
+							<option selected>Marque</option>
+							<option value="1">Bmw</option>
+							<option value="2">Mercedes</option>
+							<option value="3">Renault</option>
+						</select>
+					</div>
+
+					<div class="col-xl-2 m-2">
+						<select class="form-select form-select-lg	" id="inputGroupSelect01">
+							<option selected>Modéles</option>
+							<option value="1">Bmw</option>
+							<option value="2">Mercedes</option>
+							<option value="3">Renault</option>
+						</select>
+					</div>
+
+					<div class="col-xl-2 m-2">
+						<input type="text" class="form-control" placeholder="Localisation" aria-label="Username" aria-describedby="basic-addon1">
+					</div>
+
+					<div class="col-xl-1 m-2">
+						<button type="button" class="btn btn-warning" placeholder="Localisation">Chercher</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="container-fluid">
+			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
+
+				<div class="col">
+					<div class="card shadow-sm">
+						<img class="bd-placeholder-img card-img-top" src="{{asset('assets/image/annonce/Voiture3.jpg')}}" width="100%" height="225" alt=""></img>
+					<div class="card-body">
+						<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+						<div class="d-flex justify-content-center align-items-center">
+							<button class="btn btn-warning">
+								<a href="#">Voir la voiture</a>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col">
+				<div class="card shadow-sm">
+					<img class="bd-placeholder-img card-img-top" src="{{asset('assets/image/annonce/Voiture1.jpg')}}" width="100%" height="225" alt=""></img>
+				<div class="card-body">
+					<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+					<div class="d-flex justify-content-center align-items-center">
+						<button class="btn btn-warning">
+							<a href="#">Voir la voiture</a>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col">
+			<div class="card shadow-sm">
+				<img class="bd-placeholder-img card-img-top" src="{{asset('assets/image/annonce/Voiture3.jpg')}}" width="100%" height="225" alt=""></img>
+			<div class="card-body">
+				<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+				<div class="d-flex justify-content-center align-items-center">
+					<button class="btn btn-warning">
+						<a href="#">Voir la voiture</a>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col">
+		<div class="card shadow-sm">
+			<img class="bd-placeholder-img card-img-top" src="{{asset('assets/image/annonce/Voiture6.jpg')}}" width="100%" height="225" alt=""></img>
+		<div class="card-body">
+			<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+			<div class="d-flex justify-content-center align-items-center">
+				<button class="btn btn-warning">
+					<a href="#">Voir la voiture</a>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class="col">
+		<div class="card shadow-sm">
+			<img class="bd-placeholder-img card-img-top" src="{{asset('assets/image/annonce/Voiture5.jpg')}}" width="100%" height="225" alt=""></img>
+		<div class="card-body">
+			<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+			<div class="d-flex justify-content-center align-items-center">
+				<button class="btn btn-warning">
+					<a href="#">Voir la voiture</a>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="col">
+<div class="card shadow-sm">
+	<img class="bd-placeholder-img card-img-top" src="{{asset('assets/image/annonce/Voiture4.jpg')}}" width="100%" height="225" alt=""></img>
+<div class="card-body">
+	<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+	<div class="d-flex justify-content-center align-items-center">
+		<button class="btn btn-warning">
+			<a href="#">Voir la voiture</a>
+		</button>
+	</div>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="card shadow-sm">
+<img class="bd-placeholder-img card-img-top" src="{{asset('assets/image/annonce/Voiture3.jpg')}}" width="100%" height="225" alt=""></img><div class="card-body">
+<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+<div class="d-flex justify-content-center align-items-center">
+	<button class="btn btn-warning">
+		<a href="#">Voir la voiture</a>
+	</button>
+</div>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="card shadow-sm">
+<img class="bd-placeholder-img card-img-top" src="{{asset('assets/image/annonce/Voiture1.jpg')}}" width="100%" height="225" alt=""></img><div class="card-body"><p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p><div class="d-flex justify-content-center align-items-center">
+<button class="btn btn-warning">
+	<a href="#">Voir la voiture</a>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="card shadow-sm">
+<img class="bd-placeholder-img card-img-top" src="{{asset('assets/image/annonce/Voiture5.jpg')}}" width="100%" height="225" alt=""></img>
+<div class="card-body">
+<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+<div class="d-flex justify-content-center align-items-center">
+<button class="btn btn-warning">
+<a href="#">Voir la voiture</a>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="card shadow-sm">
+<img class="bd-placeholder-img card-img-top" src="{{asset('assets/image/annonce/Voiture6.jpg')}}" width="100%" height="225" alt=""></img>
+<div class="card-body">
+<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+<div class="d-flex justify-content-center align-items-center">
+<button class="btn btn-warning">
+<a href="#">Voir la voiture</a>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="card shadow-sm">
+<img class="bd-placeholder-img card-img-top" src="{{asset('assets/image/annonce/Voiture4.jpg')}}" width="100%" height="225" alt=""></img>
+<div class="card-body">
+<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+<div class="d-flex justify-content-center align-items-center">
+<button class="btn btn-warning">
+<a href="#">Voir la voiture</a>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="card shadow-sm">
+<img class="bd-placeholder-img card-img-top" src="{{asset('assets/image/annonce/Voiture3.jpg')}}" width="100%" height="225" alt=""></img>
+<div class="card-body">
+<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+<div class="d-flex justify-content-center align-items-center">
+<button class="btn btn-warning">
+<a href="#">Voir la voiture</a>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="about_area">
+<div class="container">
+<div class="row">
+<div class="col-xl-5 col-lg-5">
+<div class="about_info">
+<div class="section_title mb-20px">
+<h3>Qui sommes-nous</h3>
+</div>
+<p>
+	Reprise de Leasing est une plateforme qui met en relation des propriétaires de véhicules en leasing qui souhaitent se séparer de leur contrat LOA ou LLD, 
+	avec des personnes à la recherche d'une voiture d'occasion en leasing. Les annonces proposent des leasings pas cher et/ou sans apport, ainsi que des voitures d'occasion récentes et bien entretenues de toutes marques. 
+	Les annonces précisent les caractéristiques du contrat et les avantages supplémentaires. 
+	Les propriétaires peuvent déposer une annonce pour vendre leur voiture avant la fin de leur contrat et les acheteurs potentiels peuvent déposer un dossier de reprise. 
+	La plateforme propose également une formule d'accompagnement à 100 % pour les annonces, ainsi qu'une solution économique pour anticiper et réduire les risques contentieux.
+	</p>
+	<a href="#" class="line-button">Learn More</a>
+	</div>
+	</div>
+	<div class="col-xl-5 col-lg-7">
+	<div class="about_thumb d-flex">
+	<div class="img_1">
+	<img src="{{asset('assets/image/a propos/apropos1.jpg')}}" alt="">
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	<!-- about_area_end -->
+	
+	<!-- about_area_start -->
+	<div class="about_area">
+	<div class="container">
+	<div class="row">
+	<div class="col-xl-7 col-lg-7">
+	<div class="about_thumb2 d-flex">
+	<div class="img_1">
+	<img src="{{asset('assets/image/a propos/apropos2.jpg')}}" alt="">
+	</div>
+	</div>
+	</div>
+	<div class="col-xl-5 col-lg-5">
+	<div class="about_info">
+	<div class="section_title mb-20px">
+	<span>Titre</span>
+	<h3>Titre<br>Titre</h3>
+	</div>
+	<p>
+		Suscipit libero pretium nullam potenti. Interdum, blandit phasellus consectetuer dolor ornare
+		dapibus enim ut tincidunt rhoncus tellus sollicitudin pede nam maecenas, dolor sem. Neque
+		sollicitudin enim. Dapibus lorem feugiat facilisi faucibus et. Rhoncus.
+	</p>
+	<a href="#" class="line-button">Learn More</a>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	<!-- about_area_end -->
+
+{% endblock %}
+
