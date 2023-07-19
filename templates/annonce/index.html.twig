@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Annonce - Reprise de leasing{% endblock %}
+
+{% block content %}
+
+	<div class="slider_area_account">
+			<div class="single_slider_account  d-flex align-items-center justify-content-center slider_bg__account">
+				<div class="container">
+					<div class="row">
+						<div class="col-xl-12">
+							<div class="slider_text_account text-center">
+								<h3 class="font-weight-bold text-uppercase">{{ annonce.marque }} {{ annonce.modele }} </h3><h1>{{ annonce.finition}}</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<div class="container">
+	<div class="row">		
+		<div class="col-xl-4">
+			<img style="max-width: 100%" src="/uploads/imageAvant/{{ annonce.imageAvant }}">
+		</div>
+
+		<div class="col-xl-4">
+
+			<h2 class="text-center"><b><b>Voiture</b></b></h2>
+
+			<div class="text-center">
+				Energie : <b>{{ annonce.energie }}</b><br>
+				Puissance Fiscal : <b>{{ annonce.puissanceFiscal }} cv</b><br>
+				Boite de vitesse : <b>{{ annonce.boiteDeVitesse }}</b><br>
+				Nombre de portes : <b>{{ annonce.nbDePortes }}</b><br>
+				Nombre de places : <b>{{ annonce.nbDePlaces }}</b><br>
+				Couleur exterieur : <b>{{ annonce.couleurEXT }}</b><br>
+				Couleur interieur : <b>{{ annonce.couleurINT }}</b><br>
+				Equipements : <b>{{ annonce.equipements }}</b><br>
+				Date de disponibilité : <b>{{ annonce.DateDispo | date('d/m/Y') }}</b><br>
+				Kilométre parcourus : <b>{{ annonce.kmParcourus}} kms</b><br>
+			</div>
+
+			
+		</div>
+		<div class="col-xl-4">
+			<img style="max-width: 100%" src="/uploads/imageArriere/{{ annonce.imageArriere }}">
+		</div>
+
+		<div class="row">
+
+			<div class="col-xl-4">
+				
+			</div>
+
+			<div class="col-xl-4">
+			<h2 class="text-center mt-3"><b><b>Contrat</b></b></h2>
+
+			<div class="text-center">
+				Type de contrat : <b>{{ annonce.typeContrat }}</b><br>
+				Durée du contrat : <b>{{ annonce.dureeContrat }} mois</b><br>
+				Loyer Mensuelle : <b>{{ annonce.loyerMensuel }} €/mois</b><br>
+				Fin de contrat : <b>{{ annonce.dateFinContrat | date('d/m/Y') }}</b><br>
+				Sociéte de financement : <b>{{ annonce.societeFinancement }}</b><br>
+				Type de contrat : <b>{{ annonce.typeCession }}</b><br>
+				Option Contrat : <ul>
+					{% if annonce.contratOption.0 == "Assurance décès/invalidité" %}
+						<b><li>{{annonce.contratOption.0}}</li></b>
+					{% if annonce.contratOption.1 == "Assurance perte financière" %}
+						<b><li>{{annonce.contratOption.1}}</li></b>
+					{% if annonce.contratOption.2 == "Extension de garantie" %}
+						<b><li>{{annonce.contratOption.2}}</li></b>
+					{% if annonce.contratOption.3 == "Contrat d’entretien (hors pneumatiques)" %}
+						<b><li>{{annonce.contratOption.3}}</li></b>
+					{% if annonce.contratOption.4 == "Pneumatiques" %}
+						<b><li>{{annonce.contratOption.4}}</li></b>
+					{% if annonce.contratOption.5 == "Véhicule de remplacement" %}
+						<b><li>{{annonce.contratOption.5}}</li></b>
+					{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}
+				</ul>
+			</div>
+				<button class="btn btn-warning text-center"><a>Cette annonce vous interesse</a></button>
+			</div>
+			<div class="col-xl-4">
+				<img style="max-width: 50%" src="/uploads/Localisation/{{ annonce.Localisation }}.png">
+			</div>
+		</div>
+			
+
+	</div>
+</div>
+
+    
+{% endblock %}

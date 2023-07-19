@@ -1,29 +1,19 @@
-$(function() {
-    $('.material-card > .mc-btn-action').click(function () {
-        var card = $(this).parent('.material-card');
-        var icon = $(this).children('i');
-        icon.addClass('fa-spin-fast');
+const flipCardWrapAll = document.querySelector("#flip-card-wrap-all")
+const cardsWrapper = document.querySelectorAll(".flip-card-3D-wrapper")
+const cards = document.querySelectorAll(".flip-card")
+let frontButtons = ""
+let backButtons = ""
 
-        if (card.hasClass('mc-active')) {
-            card.removeClass('mc-active');
-
-            window.setTimeout(function() {
-                icon
-                    .removeClass('fa-arrow-left')
-                    .removeClass('fa-spin-fast')
-                    .addClass('fa-bars');
-
-            }, 800);
-        } else {
-            card.addClass('mc-active');
-
-            window.setTimeout(function() {
-                icon
-                    .removeClass('fa-bars')
-                    .removeClass('fa-spin-fast')
-                    .addClass('fa-arrow-left');
-
-            }, 800);
-        }
-    });
-});
+for (let i = 0; i < cardsWrapper.length; i++) {
+frontButtons = cardsWrapper[i].querySelector(".flip-card-btn-turn-to-back")
+frontButtons.style.visibility = "visible"
+frontButtons.onclick = function() {
+cards[i].classList.toggle('do-flip')
+}
+  
+backButtons = cardsWrapper[i].querySelector(".flip-card-btn-turn-to-front")
+backButtons.style.visibility = "visible"
+backButtons.onclick = function() {
+cards[i].classList.toggle('do-flip')
+ }  
+} 

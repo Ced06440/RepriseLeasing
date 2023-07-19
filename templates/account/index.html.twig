@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reprise de leasing // Mon compte{% endblock %}
+
+{% block content %}
+
+	<div class="slider_area_account">
+			<div class="single_slider_account  d-flex align-items-center justify-content-center slider_bg__account">
+				<div class="container">
+					<div class="row">
+						<div class="col-xl-12">
+							<div class="slider_text_account text-center">
+								<h3>Mon compte</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% for message in app.flashes('message') %}
+	<div class="p-3 my-2 rounded-2 success">{{ message }}</div>
+{% endfor %}
+Bienvenue {{ app.user.firstName }} {{ app.user.lastName }}
+<ul>
+    <a href="{{ path('app_account_password') }}">Modifier mon mot de passe</a>
+    <li>
+		<a href="{{path('app_account_mes_annonces', {'id': app.user.id})}}">
+			Gerer mes annonces
+		</a>
+	</li>
+	{{dump(app.user.annonce)}}
+</ul> 
+
+{% endblock %}

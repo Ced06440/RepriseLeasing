@@ -1,0 +1,19 @@
+<h1>Mes annonces</h1>
+{% for annonces in annonces %}
+    <pre>
+        {{ dump(annonces) }}
+    </pre>
+    <tr>
+        <td>
+        {% if annonces.active == 1 %}
+            <p>Votre annonce a été validé est elle est visible sur le site
+        {% else %}
+            <p><b>Votre annonce est encore en vérification</p>
+        {% endif %}
+        
+        </td>
+    </tr>
+
+    <img src="./public/uploads/imageAvant/{{annonces.imageAvant}}">
+    {{ annonces.immatriculation }}
+{% endfor %}

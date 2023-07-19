@@ -1,0 +1,534 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Déposer une annonce - Reprise de leasing{% endblock %}
+
+{% block content %}
+	<div class="slider_area_annonce">
+			<div class="single_slider_annonce  d-flex align-items-center justify-content-center slider_bg_annonce">
+				<div class="container">
+					<div class="row">
+						<div class="col-xl-12">
+							<div class="slider_text_annonce text-center">
+								<h3>Deposer une annonces</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{% if app.user %}
+	{{ form_start(formAnnonce) }}
+		<div class="container">
+
+			<h4 class="text-center">Vous pouvez trouver la plupart des éléments sur votre carte grise, sinon vous pouvez vous aider de ce <a href="https://siv-auto.fr" target="_blank" style="color:red">site</a></h4> 
+			
+			<div class="row">
+				<!-- Debut Véhicule -->
+				<div class="col-xl-5 mt-5">
+					<h2 class="text-center">VEHICULE</h2>
+					<div class="row">
+						<div class="col">
+							<p class="lead mb-1 mt-3">
+								Plaque d'immatriculation
+								<svg xmlns="http://www.w3.org/2000/svg" 
+									width="10" 
+									height="10" 
+									fill="#FA1000" 
+									class="bi bi-asterisk mb-3" 
+									viewBox="0 0 16 16">
+									<path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+								</svg>
+							</p>
+							{{ form_widget(formAnnonce.immatriculation) }}
+							<h6>Veuillez indiquez votre plaque d'immatriculation</h6>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xl-5">
+							<p class="lead mb-1 mt-3">
+								Localisation
+								<svg xmlns="http://www.w3.org/2000/svg" 
+									width="10" 
+									height="10" 
+									fill="#FA1000" 
+									class="bi bi-asterisk mb-3" 
+									viewBox="0 0 16 16">
+									<path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+								</svg>
+							</p>
+							{{ form_widget(formAnnonce.localisation) }}
+							<h6>Merci d'indiquer où le véhicule est stationner</h6>
+						</div>
+
+						<div class="col-xl-6">
+							<p class="lead mb-1 mt-3">Date de disponibilité</p>
+							{{ form_widget(formAnnonce.DateDispo) }}
+							<h6>Merci d'indiquer la date a laquelle la voiture est disponible</h6>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col">
+							<p class="lead mb-1 mt-3">
+								Type de voiture
+								<svg xmlns="http://www.w3.org/2000/svg" 
+									width="10" 
+									height="10" 
+									fill="#FA1000" 
+									class="bi bi-asterisk mb-3" 
+									viewBox="0 0 16 16">
+									<path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+								</svg>
+							</p>
+							{{ form_widget(formAnnonce.type) }}
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col">
+							<p class="lead mb-1 mt-3">
+								Mise en circulation
+								<svg xmlns="http://www.w3.org/2000/svg" 
+									width="10" 
+									height="10" 
+									fill="#FA1000" 
+									class="bi bi-asterisk mb-3" 
+									viewBox="0 0 16 16">
+									<path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+								</svg>
+							</p>
+							{{ form_widget(formAnnonce.miseEnService) }}
+							<h6>Merci d'indiquer la date a laquelle la voiture à etait mise en circulation</h6>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xl-4">
+							<p class="lead mb-1 mt-3">
+								Marque
+								<svg xmlns="http://www.w3.org/2000/svg" 
+									width="10" 
+									height="10" 
+									fill="#FA1000" 
+									class="bi bi-asterisk mb-3" 
+									viewBox="0 0 16 16">
+									<path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+								</svg>
+								<i class="bi bi-question-square align-items-end hoverMarque"></i>
+							</p>
+							{{ form_widget(formAnnonce.marque) }}
+							<h6>Sur votre carte grise : D.1</h6>
+						</div>
+						<div class="col-xl-4">
+							<p class="lead mb-1 mt-3">
+								Modéle
+								<svg xmlns="http://www.w3.org/2000/svg" 
+									width="10" 
+									height="10" 
+									fill="#FA1000" 
+									class="bi bi-asterisk mb-3" 
+									viewBox="0 0 16 16">
+									<path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+								</svg>
+							</p>
+							{{ form_widget(formAnnonce.modele) }}
+							<h6>Sur votre carte grise : D.3</h6>
+						</div>
+						<div class="col-xl-4">
+							<p class="lead mb-1 mt-3">Finition de la voiture</p>
+							{{ form_widget(formAnnonce.finition) }}
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col">
+							<p class="lead mb-1 mt-3">
+							Energie 
+								<svg xmlns="http://www.w3.org/2000/svg" 
+									width="10" 
+									height="10" 
+									fill="#FA1000" 
+									class="bi bi-asterisk mb-3" 
+									viewBox="0 0 16 16">
+									<path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+								</svg>
+								<i class="bi bi-question-square align-items-end"></i>
+							</p>
+							{{ form_widget(formAnnonce.energie) }}
+							<h6>Sur votre carte grise : D.3</h6> 
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col">
+							<p class="lead mb-1 mt-3">
+							Puissance fiscal
+								<svg xmlns="http://www.w3.org/2000/svg" 
+									width="10" 
+									height="10" 
+									fill="#FA1000" 
+									class="bi bi-asterisk mb-3" 
+									viewBox="0 0 16 16">
+									<path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+								</svg>
+								<i class="bi bi-question-square align-items-end"></i>
+							</p>
+							{{ form_widget(formAnnonce.puissanceFiscal) }}
+							<h6>Sur votre carte grise : P.6</h6> 
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col">
+							<p class="lead mb-1 mt-3">
+							Emission de gaz carbonique -CO2
+								<svg xmlns="http://www.w3.org/2000/svg" 
+									width="10" 
+									height="10" 
+									fill="#FA1000" 
+									class="bi bi-asterisk mb-3" 
+									viewBox="0 0 16 16">
+									<path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+								</svg>
+								<i class="bi bi-question-square align-items-end"></i>
+							</p>
+							{{ form_widget(formAnnonce.emissionCO2) }}
+							<h6>Sur votre carte grise : V.7</h6> 
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col">
+							<p class="lead mb-1 mt-3">
+							Boite de vitesse
+								<svg xmlns="http://www.w3.org/2000/svg" 
+									width="10" 
+									height="10" 
+									fill="#FA1000" 
+									class="bi bi-asterisk mb-3" 
+									viewBox="0 0 16 16">
+									<path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+								</svg>
+							</p>
+							{{ form_widget(formAnnonce.boiteDeVitesse) }} 
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col">
+							<p class="lead mb-1 mt-3">
+							Nombre de portes
+								<svg xmlns="http://www.w3.org/2000/svg" 
+									width="10" 
+									height="10" 
+									fill="#FA1000" 
+									class="bi bi-asterisk mb-3" 
+									viewBox="0 0 16 16">
+									<path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+								</svg>
+							</p>
+							{{ form_widget(formAnnonce.nbDePortes) }} 
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col">
+							<p class="lead mb-1 mt-3">
+							Nombre de places
+								<svg xmlns="http://www.w3.org/2000/svg" 
+									width="10" 
+									height="10" 
+									fill="#FA1000" 
+									class="bi bi-asterisk mb-3" 
+									viewBox="0 0 16 16">
+									<path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+								</svg>
+							</p>
+							{{ form_widget(formAnnonce.nbDePlaces) }} 
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col">
+							<p class="lead mb-1 mt-3">
+							Date du dernier Controle Technique
+								<svg xmlns="http://www.w3.org/2000/svg" 
+									width="10" 
+									height="10" 
+									fill="#FA1000" 
+									class="bi bi-asterisk mb-3" 
+									viewBox="0 0 16 16">
+									<path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+								</svg>
+							</p>
+							{{ form_widget(formAnnonce.dateDernierCT) }} 
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col">
+							<p class="lead mb-1 mt-3">
+							Kilométres parcourus
+								<svg xmlns="http://www.w3.org/2000/svg" 
+									width="10" 
+									height="10" 
+									fill="#FA1000" 
+									class="bi bi-asterisk mb-3" 
+									viewBox="0 0 16 16">
+									<path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+								</svg>
+							</p>
+							{{ form_widget(formAnnonce.kmParcourus) }} 
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xl-6">
+							<p class="lead mb-1 mt-3">
+							Couleur Exterieur
+								<svg xmlns="http://www.w3.org/2000/svg" 
+									width="10" 
+									height="10" 
+									fill="#FA1000" 
+									class="bi bi-asterisk mb-3" 
+									viewBox="0 0 16 16">
+									<path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+								</svg>
+							</p>
+							{{ form_widget(formAnnonce.couleurEXT) }} 
+						</div>
+
+						<div class="col-xl-6">
+							<p class="lead mb-1 mt-3">
+							Couleur Interieur
+								<svg xmlns="http://www.w3.org/2000/svg" 
+									width="10" 
+									height="10" 
+									fill="#FA1000" 
+									class="bi bi-asterisk mb-3" 
+									viewBox="0 0 16 16">
+									<path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+								</svg>
+							</p>
+							{{ form_widget(formAnnonce.couleurINT) }} 
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col">
+							<p class="lead mb-1 mt-3">
+							Equipement
+							</p>
+							{{ form_widget(formAnnonce.equipements) }} 
+						</div>
+					</div>
+				</div>
+					<!-- Fin Véhicule -->
+
+					<!-- Debut Contrat -->
+				<div class="col-xl-6 mt-5">
+					<h2 class="text-center">CONTRAT</h2>
+
+					<div class="row">
+						<div class="col">
+							<p class="lead mb-1 mt-3">
+							Société de financement
+							<svg xmlns="http://www.w3.org/2000/svg" 
+								width="10" 
+								height="10" 
+								fill="#FA1000" 
+								class="bi bi-asterisk mb-3" 
+								viewBox="0 0 16 16">
+								<path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+							</svg>
+							</p>
+							{{ form_widget(formAnnonce.societeFinancement) }}
+							<h6>Si votre sociéte de financement n'est pas dans la liste merci de nous contacter au <b>04.04.04.04.04</b></h6>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col">
+							<p class="lead mb-1 mt-3">
+							Votre contrat comprend :
+							</p>
+							{{ form_widget(formAnnonce.contratOption) }}
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-6">
+							<p class="lead mb-1 mt-3">
+							Durée du contrat (mois)
+							<svg xmlns="http://www.w3.org/2000/svg" 
+								width="10" 
+								height="10" 
+								fill="#FA1000" 
+								class="bi bi-asterisk mb-3" 
+								viewBox="0 0 16 16">
+								<path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+							</svg>
+							</p>
+							{{ form_widget(formAnnonce.dureeContrat) }}
+						</div>
+
+						<div class="col-6">
+							<p class="lead mb-1 mt-3">
+							Date de fin contrat
+							<svg xmlns="http://www.w3.org/2000/svg" 
+								width="10" 
+								height="10" 
+								fill="#FA1000" 
+								class="bi bi-asterisk mb-3" 
+								viewBox="0 0 16 16">
+								<path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+							</svg>
+							</p>
+							{{ form_widget(formAnnonce.dateFinContrat) }}
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-6">
+							<p class="lead mb-1 mt-3">
+							Kilomètres alloués pour la durée du contrat 
+							<svg xmlns="http://www.w3.org/2000/svg" 
+								width="10" 
+								height="10" 
+								fill="#FA1000" 
+								class="bi bi-asterisk mb-3" 
+								viewBox="0 0 16 16">
+								<path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+							</svg>
+							</p>
+							{{ form_widget(formAnnonce.maxKmContrat) }}
+							<h6>Pour un kilomètrage illimté merci d'indiquer 0</h6>
+						</div>
+
+						<div class="col-6">
+							<p class="lead mb-1 mt-3">
+							Prix du kilomètres supplémentaires
+							</p>
+							{{ form_widget(formAnnonce.prixKmsSupp) }}
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-6">
+							<p class="lead mb-1 mt-3">
+							Apport initial 
+							<svg xmlns="http://www.w3.org/2000/svg" 
+								width="10" 
+								height="10" 
+								fill="#FA1000" 
+								class="bi bi-asterisk mb-3" 
+								viewBox="0 0 16 16">
+								<path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+							</svg>
+							</p>
+							{{ form_widget(formAnnonce.apport) }}
+						</div>
+
+						<div class="col-6">
+							<p class="lead mb-1 mt-3">
+							Récupérer mon apport initial
+							<svg xmlns="http://www.w3.org/2000/svg" 
+								width="10" 
+								height="10" 
+								fill="#FA1000" 
+								class="bi bi-asterisk mb-3" 
+								viewBox="0 0 16 16">
+								<path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+							</svg>
+							</p>
+							{{ form_widget(formAnnonce.recupApport) }}
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-6">
+							<p class="lead mb-1 mt-3">
+							Loyer mensuel
+							<svg xmlns="http://www.w3.org/2000/svg" 
+								width="10" 
+								height="10" 
+								fill="#FA1000" 
+								class="bi bi-asterisk mb-3" 
+								viewBox="0 0 16 16">
+								<path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+							</svg>
+							</p>
+							{{ form_widget(formAnnonce.loyerMensuel) }}
+						</div>
+
+						<div class="col-6">
+							<p class="lead mb-1 mt-3">
+							Nombre de mois de loyer offert(s)
+							</p>
+							{{ form_widget(formAnnonce.nbMoisOffert) }}
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-6">
+							<p class="lead mb-1 mt-3">
+							Type de contrat
+							<svg xmlns="http://www.w3.org/2000/svg" 
+								width="10" 
+								height="10" 
+								fill="#FA1000" 
+								class="bi bi-asterisk mb-3" 
+								viewBox="0 0 16 16">
+								<path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+							</svg>
+							</p>
+							{{ form_widget(formAnnonce.typeContrat) }}
+						</div>
+
+						<div class="col-6">
+							<p class="lead mb-1 mt-3">
+							Type de cession
+							</p>
+							{{ form_widget(formAnnonce.typeCession) }}
+						</div>
+
+						<div class="col-6">
+							<p class="lead mb-1 mt-3">
+							Photo de l'avant de votre voiture
+							</p>
+							{{ form_widget(formAnnonce.imageAvant) }}
+						</div>
+
+						<div class="col-6">
+							<p class="lead mb-1 mt-3">
+							Photo de l'arriere de votre voiture
+							</p>
+							{{ form_widget(formAnnonce.imageArriere) }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+
+			{{ form_label(formAnnonce.submit) }}
+
+    {{ form_end(formAnnonce) }}
+	
+	{% else %}
+
+	<div class="text-center">
+		<h2>Pour déposer une annonce merci de vous inscrire avant</h2>
+		<div class="d-none d-lg-block me-5 mb-5">
+            <a href="{{ path('app_register') }}">
+				<button class="btn btn-warning mt-3 btn-lg">
+					S'inscrire
+				</button>
+			</a>
+        </div>
+	</div>
+    {% endif %}
+
+{% endblock %}

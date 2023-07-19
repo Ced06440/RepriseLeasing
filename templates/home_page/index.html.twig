@@ -36,32 +36,42 @@
 					</div>
 				</div>
 			</div>
-				<!-- 2card	-->
-			<div
-				id="ads">
-				<!-- Category Card -->
-				<div class="col-md-4">
-					<div class="card rounded p-3">
-						<div class="card-image">
-							<span class="card-notify-badge">6 mois</span>
-							<span class="card-notify-year">LOA</span>
-							<img class="img-fluid" src="./assets/image/annonce/voiture3.jpg" alt="Alternate Text"/>
-						</div>
-						<h3 class="text-center">Mazda</h3>
-						<div class="card-image-overlay m-auto text-center">
-							<span class="card-detail-badge p-2">128,53€/mois</span>
-							<span class="card-detail-badge p-2">13500€</span>
-							<btn class="btn btn-warning p-2">Voir la voiture</btn>
-						</div>
-					</div>
+
+				<!-- Best Annonce Cards	-->
+			<div class="container">
+				<div class="row">
+					{% for annonces in annonces %}
+							{% if (annonces.active == 1) and (annonces.bestOffer == 1) %}
+								<div id="ads" class="col-md-4">
+									<div class="card rounded p-3">
+										<div class="card-image">
+											<span class="card-notify-badge">6 mois</span>
+											<span class="card-notify-year">
+												{% if annonces.typeContrat == "Location avec Option d'Achat (LOA)" %}
+													LOA 
+												{% else %}
+													LDD 
+												{% endif %}
+											</span>
+											<img class="img-fluid" src="/uploads/imageAvant/{{ annonces.imageAvant }}" alt="Alternate Text"/>
+										</div>
+										<h3 class="text-center">{{ annonces.marque }} {{annonces.modele}}</h3>
+										<div class="card-image-overlay m-auto text-center">
+											<span class="card-detail-badge p-2">128,53€/mois</span>
+											<span class="card-detail-badge p-2">13500€</span>
+											<btn class="btn btn-warning p-2"><a href="{{ path('app_annonce', {'id' : annonces.id }) }}">Voir la voiture</a></btn>
+										</div>
+									</div>
+								</div>
+						{% endif %}
+					{% endfor %}
 				</div>
 			</div>
-		</div>
 	</div>
-	<!-- 2 card end -->
+	<!-- End Best Annonce Cards -->
 
 
-	<div class="album py-5 bg-body-tertiary">
+	<div class="album py-5 bg-body-tertiary" id="annonces">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-xl-12">
@@ -127,173 +137,45 @@
 					<div class="col-xl-1 m-2">
 						<button type="button" class="btn btn-warning" placeholder="Localisation">Chercher</button>
 					</div>
-
 				</div>
 			</div>
 		</div>
 
-		<div class="container-fluid">
-			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
+		<div class="container">
+			<div class="row">
 
-				<div class="col">
-					<div class="card shadow-sm">
-						<img class="bd-placeholder-img card-img-top" src="{{asset('assets/image/annonce/Voiture3.jpg')}}" width="100%" height="225" alt=""></img>
-					<div class="card-body">
-						<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-						<div class="d-flex justify-content-center align-items-center">
-							<button class="btn btn-warning">
-								<a href="#">Voir la voiture</a>
-							</button>
+				{% for annonces in annonces %}
+					{% if annonces.active == 1 %}
+						{% if annonces.bestOffer == 1 %}
+
+					<div id="ads" class="col-md-4">
+						<div class="card rounded p-3">
+							<div class="card-image">
+								<span class="card-notify-badge">6 mois</span>
+								<span class="card-notify-year">
+									{% if annonces.typeContrat == "Location avec Option d'Achat (LOA)" %}
+										LOA 
+									{% else %}
+										LDD 
+									{% endif %}
+								</span>
+								<img class="img-fluid" src="./assets/image/annonce/voiture3.jpg" alt="Alternate Text"/>
+							</div>
+							<h3 class="text-center">{{ annonces.marque }} {{annonces.modele}}</h3>
+							<div class="card-image-overlay m-auto text-center">
+								<span class="card-detail-badge p-2">{{annonces.loyerMensuel}}€/mois</span>
+								<span class="card-detail-badge p-2">13500€</span>
+								<btn class="btn btn-warning p-2">Voir la voiture</btn>
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>
+						{% endif %}
+					{% endif %}
+				{% endfor %}
 
-			<div class="col">
-				<div class="card shadow-sm">
-					<img class="bd-placeholder-img card-img-top" src="{{asset('assets/image/annonce/Voiture1.jpg')}}" width="100%" height="225" alt=""></img>
-				<div class="card-body">
-					<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-					<div class="d-flex justify-content-center align-items-center">
-						<button class="btn btn-warning">
-							<a href="#">Voir la voiture</a>
-						</button>
-					</div>
-				</div>
 			</div>
 		</div>
 
-		<div class="col">
-			<div class="card shadow-sm">
-				<img class="bd-placeholder-img card-img-top" src="{{asset('assets/image/annonce/Voiture3.jpg')}}" width="100%" height="225" alt=""></img>
-			<div class="card-body">
-				<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-				<div class="d-flex justify-content-center align-items-center">
-					<button class="btn btn-warning">
-						<a href="#">Voir la voiture</a>
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="col">
-		<div class="card shadow-sm">
-			<img class="bd-placeholder-img card-img-top" src="{{asset('assets/image/annonce/Voiture6.jpg')}}" width="100%" height="225" alt=""></img>
-		<div class="card-body">
-			<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-			<div class="d-flex justify-content-center align-items-center">
-				<button class="btn btn-warning">
-					<a href="#">Voir la voiture</a>
-				</button>
-			</div>
-		</div>
-	</div>
-</div>
-
-	<div class="col">
-		<div class="card shadow-sm">
-			<img class="bd-placeholder-img card-img-top" src="{{asset('assets/image/annonce/Voiture5.jpg')}}" width="100%" height="225" alt=""></img>
-		<div class="card-body">
-			<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-			<div class="d-flex justify-content-center align-items-center">
-				<button class="btn btn-warning">
-					<a href="#">Voir la voiture</a>
-				</button>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="col">
-<div class="card shadow-sm">
-	<img class="bd-placeholder-img card-img-top" src="{{asset('assets/image/annonce/Voiture4.jpg')}}" width="100%" height="225" alt=""></img>
-<div class="card-body">
-	<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-	<div class="d-flex justify-content-center align-items-center">
-		<button class="btn btn-warning">
-			<a href="#">Voir la voiture</a>
-		</button>
-	</div>
-</div>
-</div>
-</div>
-<div class="col">
-<div class="card shadow-sm">
-<img class="bd-placeholder-img card-img-top" src="{{asset('assets/image/annonce/Voiture3.jpg')}}" width="100%" height="225" alt=""></img><div class="card-body">
-<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-<div class="d-flex justify-content-center align-items-center">
-	<button class="btn btn-warning">
-		<a href="#">Voir la voiture</a>
-	</button>
-</div>
-</div>
-</div>
-</div>
-<div class="col">
-<div class="card shadow-sm">
-<img class="bd-placeholder-img card-img-top" src="{{asset('assets/image/annonce/Voiture1.jpg')}}" width="100%" height="225" alt=""></img><div class="card-body"><p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p><div class="d-flex justify-content-center align-items-center">
-<button class="btn btn-warning">
-	<a href="#">Voir la voiture</a>
-</button>
-</div>
-</div>
-</div>
-</div>
-<div class="col">
-<div class="card shadow-sm">
-<img class="bd-placeholder-img card-img-top" src="{{asset('assets/image/annonce/Voiture5.jpg')}}" width="100%" height="225" alt=""></img>
-<div class="card-body">
-<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-<div class="d-flex justify-content-center align-items-center">
-<button class="btn btn-warning">
-<a href="#">Voir la voiture</a>
-</button>
-</div>
-</div>
-</div>
-</div>
-<div class="col">
-<div class="card shadow-sm">
-<img class="bd-placeholder-img card-img-top" src="{{asset('assets/image/annonce/Voiture6.jpg')}}" width="100%" height="225" alt=""></img>
-<div class="card-body">
-<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-<div class="d-flex justify-content-center align-items-center">
-<button class="btn btn-warning">
-<a href="#">Voir la voiture</a>
-</button>
-</div>
-</div>
-</div>
-</div>
-<div class="col">
-<div class="card shadow-sm">
-<img class="bd-placeholder-img card-img-top" src="{{asset('assets/image/annonce/Voiture4.jpg')}}" width="100%" height="225" alt=""></img>
-<div class="card-body">
-<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-<div class="d-flex justify-content-center align-items-center">
-<button class="btn btn-warning">
-<a href="#">Voir la voiture</a>
-</button>
-</div>
-</div>
-</div>
-</div>
-<div class="col">
-<div class="card shadow-sm">
-<img class="bd-placeholder-img card-img-top" src="{{asset('assets/image/annonce/Voiture3.jpg')}}" width="100%" height="225" alt=""></img>
-<div class="card-body">
-<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-<div class="d-flex justify-content-center align-items-center">
-<button class="btn btn-warning">
-<a href="#">Voir la voiture</a>
-</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 <div class="about_area">
 <div class="container">
 <div class="row">

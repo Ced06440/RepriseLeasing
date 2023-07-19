@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Se connecter - Reprise de leasing{% endblock %}
+
+{% block content %}
+	<div class="slider_area_account">
+			<div class="single_slider_account  d-flex align-items-center justify-content-center slider_bg__account">
+				<div class="container">
+					<div class="row">
+						<div class="col-xl-12">
+							<div class="slider_text_account text-center">
+								<h3>Connectez-vous</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<form method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            Vous êtes déja connecter avec le mail,{{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
+        </div>
+    {% endif %}
+
+    <h1 class="h3 mb-3 font-weight-normal">Merci de remplir les champs ci dessous pour vous connectez</h1>
+    <label for="inputEmail">Email</label>
+    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+    <label for="inputPassword">Mot de passe</label>
+    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+    <input type="hidden" name="_csrf_token"
+        value="{{ csrf_token('authenticate') }}"
+    >
+
+    {#
+        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+        See https://symfony.com/doc/current/security/remember_me.html
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
+        </div>
+    #}
+
+    <button class="btn btn-lg btn-primary m-2" type="submit">
+        Se connectez
+    </button>
+</form>
+{% endblock %}
