@@ -378,9 +378,11 @@ class AnnoncesType extends AbstractType
                 ],
                 "choices" => [
                     "Location à Longue Durée (LLD)" => "LLD",
-                    "LOA" => "Location avec Option d'Achat (LOA)",
+                    "Location avec Option d'Achat (LOA)" => "LOA",
                 ]
             ])
+
+            ->add("optionAchat", IntegerType::class)
 
             ->add("typeCession", ChoiceType::class, [
                 "required" => true,
@@ -428,8 +430,24 @@ class AnnoncesType extends AbstractType
                 ],
             ])
 
+            ->add('imageInterieur', FileType::class, [
+                "label" => "image de l'intérieur de votre voiture",
+                "mapped" => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '1024k',
+                        'mimeTypes' => [
+                            'image/jpg',
+                            'image/jpeg',
+                            'image/png',
+                        ],
+                        'mimeTypesMessage' => 'Please upload a valid image document',
+                    ])
+                ],
+            ])
+
             ->add('submit', SubmitType::class, [
-                'label' => "Déposez son annonce",
+                'label' => "Déposez mon annonce",
                 "attr" => [
                     'class' => "btn btn-primary mt-4"
                 ]

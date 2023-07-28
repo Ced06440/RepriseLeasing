@@ -38,6 +38,9 @@ class RegisterController extends AbstractController
 
             $this->entityManager->persist($user);
             $this->entityManager->flush();
+
+            $this->addFlash('message', 'Votre inscription à bien etait prise en compte, vous pouvez vous connectez');
+            return $this->redirectToRoute('app_home_page');
         }
 
         return $this->render('register/index.html.twig', [

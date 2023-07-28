@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use DateTime;
 use DateTimeImmutable;
 use App\Entity\Annonce;
 use App\Form\AnnoncesType;
@@ -9,7 +10,6 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -35,19 +35,17 @@ class DeposerAnnonceController extends AbstractController
             $annonce->setCreatedAt(new DateTimeImmutable())
                     ->setDroppedUser($this->getUser($user));
 
-            $brochureFile = $form->get('imageAvant')->getData();
+            $imageAvant = $form->get('imageAvant')->getData();
 
-            // this condition is needed because the 'brochure' field is not required
-            // so the PDF file must be processed only when a file is uploaded
-            if ($brochureFile) {
-                $originalFilename = pathinfo($brochureFile->getClientOriginalName(), PATHINFO_FILENAME);
+            if ($imageAvant) {
+                $originalFilename = pathinfo($imageAvant->getClientOriginalName(), PATHINFO_FILENAME);
                 // this is needed to safely include the file name as part of the URL
                 $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = $safeFilename.'-'.uniqid().'.'.$brochureFile->guessExtension();
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$imageAvant->guessExtension();
 
                 // Move the file to the directory where brochures are stored
                 try {
-                    $brochureFile->move(
+                    $imageAvant->move(
                         $this->getParameter('imageAvant_directory'),
                         $newFilename
                     );
@@ -59,19 +57,17 @@ class DeposerAnnonceController extends AbstractController
                 // instead of its contents
                 $annonce->setimageAvant($newFilename);
             }
-            $brochureFile = $form->get('imageArriere')->getData();
+            $imageArriere = $form->get('imageArriere')->getData();
 
-            // this condition is needed because the 'brochure' field is not required
-            // so the PDF file must be processed only when a file is uploaded
-            if ($brochureFile) {
-                $originalFilename = pathinfo($brochureFile->getClientOriginalName(), PATHINFO_FILENAME);
+            if ($imageArriere) {
+                $originalFilename = pathinfo($imageArriere->getClientOriginalName(), PATHINFO_FILENAME);
                 // this is needed to safely include the file name as part of the URL
                 $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = $safeFilename.'-'.uniqid().'.'.$brochureFile->guessExtension();
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$imageArriere->guessExtension();
 
                 // Move the file to the directory where brochures are stored
                 try {
-                    $brochureFile->move(
+                    $imageArriere->move(
                         $this->getParameter('imageArriere_directory'),
                         $newFilename
                     );
@@ -84,11 +80,34 @@ class DeposerAnnonceController extends AbstractController
                 $annonce->setimageArriere($newFilename);
             }
 
+            $imageInterieur = $form->get('imageInterieur')->getData();
+
+            if ($imageInterieur) {
+                $originalFilename = pathinfo($imageInterieur->getClientOriginalName(), PATHINFO_FILENAME);
+                // this is needed to safely include the file name as part of the URL
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$imageInterieur->guessExtension();
+
+                // Move the file to the directory where brochures are stored
+                try {
+                    $imageInterieur->move(
+                        $this->getParameter('imageInterieur_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+
+                // updates the 'brochureFilename' property to store the PDF file name
+                // instead of its contents
+                $annonce->setimageInterieur($newFilename);
+            }
+
             $this->entityManager->persist($annonce);
             $this->entityManager->flush();
 
             $this->addFlash('message', 'Votre annonce a bien été envoyer, elle est en cours de vérification.');
-            return $this->redirectToRoute('app_account');
+            return $this->redirectToRoute('app_home_page');
         }
 
         return $this->render('deposer_annonce/index.html.twig', [

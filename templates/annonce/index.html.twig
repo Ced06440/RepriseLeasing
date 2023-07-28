@@ -4,13 +4,14 @@
 
 {% block content %}
 
-	<div class="slider_area_account">
-			<div class="single_slider_account  d-flex align-items-center justify-content-center slider_bg__account">
+	<div class="slider_area_annonce">
+			<div class="single_slider_annonce  d-flex align-items-center justify-content-center slider_bg_annonce">
 				<div class="container">
 					<div class="row">
 						<div class="col-xl-12">
-							<div class="slider_text_account text-center">
-								<h3 class="font-weight-bold text-uppercase">{{ annonce.marque }} {{ annonce.modele }} </h3><h1>{{ annonce.finition}}</h1>
+							<div class="slider_text_annonce text-center">
+								<h3 class="font-weight-bold text-uppercase">{{ annonce.marque }} {{ annonce.modele }}</h3>
+								<h1>{{ annonce.finition}}</h1>
 							</div>
 						</div>
 					</div>
@@ -19,6 +20,10 @@
 		</div>
 	</div>
 
+		<div class="text_annonce text-center m-5">
+			<h1 class="font-weight-bold text-uppercase">{{ annonce.marque }} {{ annonce.modele }}</h1>
+			<h3>{{ annonce.finition}}</h3>
+		</div>
 <div class="container">
 	<div class="row">		
 		<div class="col-xl-4">
@@ -37,9 +42,9 @@
 				Nombre de places : <b>{{ annonce.nbDePlaces }}</b><br>
 				Couleur exterieur : <b>{{ annonce.couleurEXT }}</b><br>
 				Couleur interieur : <b>{{ annonce.couleurINT }}</b><br>
-				Equipements : <b>{{ annonce.equipements }}</b><br>
 				Date de disponibilité : <b>{{ annonce.DateDispo | date('d/m/Y') }}</b><br>
 				Kilométre parcourus : <b>{{ annonce.kmParcourus}} kms</b><br>
+				Equipements : <b>{{ annonce.equipements | raw }}</b><br>
 			</div>
 
 			
@@ -78,12 +83,17 @@
 					{% if annonce.contratOption.5 == "Véhicule de remplacement" %}
 						<b><li>{{annonce.contratOption.5}}</li></b>
 					{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}
+					<button class="btn btn-warning text-center mt-2 mb-3"><a>Cette annonce vous interesse</a></button>
 				</ul>
 			</div>
-				<button class="btn btn-warning text-center"><a>Cette annonce vous interesse</a></button>
 			</div>
 			<div class="col-xl-4">
 				<img style="max-width: 50%" src="/uploads/Localisation/{{ annonce.Localisation }}.png">
+				<p>
+					{% if annonce.Localisation == "07" %}
+						Ardêche (07)
+					{% endif %}
+				</p>
 			</div>
 		</div>
 			

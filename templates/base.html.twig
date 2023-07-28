@@ -8,13 +8,14 @@
 
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
-            <link rel="stylesheet" href={{ asset("assets/css/style.css") }}>
             <link rel="stylesheet" href={{ asset("assets/css/includes/NavBar.css")}}>
+            <link rel="stylesheet" href="{{ asset("assets/css/includes/slicknav.css") }}">
             <link rel="stylesheet" href={{ asset("assets/css/Card.css")}}>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
             <link rel="stylesheet" href="{{ asset("assets/css/pages/register/style.css") }}">
             <link rel="stylesheet" href="{{ asset("assets/css/pages/account/style.css") }}">
             <link rel="stylesheet" href="{{ asset("assets/css/pages/annonce/style.css") }}">
+            <link rel="stylesheet" href={{ asset("assets/css/style.css") }}>
         {% endblock %}
 
 
@@ -30,8 +31,9 @@
     </body>
         {% block javascripts %}
     {{ encore_entry_script_tags('app') }}
-    	<script src={{ asset ('assets/js/vendor/jquery-1.12.4.min.js') }}></script>
+        <script src={{ asset ('assets/js/vendor/jquery-1.12.4.min.js') }}></script>
 		<script src={{ asset ('assets/js/main.js') }}></script>
 		<script src={{ asset ('assets/js/card.js') }}></script>
+        <script src={{ asset ('assets/js/jquery.slicknav.min.js') }}></script>
         {% endblock %}
 </html>

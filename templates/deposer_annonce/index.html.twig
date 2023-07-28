@@ -317,7 +317,7 @@
 						</div>
 					</div>
 
-					<div class="row">
+					<div class="row mb-5">
 						<div class="col">
 							<p class="lead mb-1 mt-3">
 							Equipement
@@ -490,9 +490,24 @@
 
 						<div class="col-6">
 							<p class="lead mb-1 mt-3">
+							Option D'achat
+								{{form_widget(formAnnonce.optionAchat)}}
+							</p>
+							
+						</div>
+
+						<div class="col-6">
+							<p class="lead mb-1 mt-3">
 							Type de cession
 							</p>
 							{{ form_widget(formAnnonce.typeCession) }}
+						</div>
+
+						<div class="col-6">
+							<p class="lead mb-1 mt-3">
+							Photo de l'inérieur de votre voiture
+							</p>
+							{{ form_widget(formAnnonce.imageInterieur) }}
 						</div>
 
 						<div class="col-6">
@@ -507,6 +522,12 @@
 							Photo de l'arriere de votre voiture
 							</p>
 							{{ form_widget(formAnnonce.imageArriere) }}
+						</div>
+
+						<div class="col-4">
+						</div>
+						<div class="col-4">
+							{{ form_widget(formAnnonce.submit) }}
 						</div>
 					</div>
 				</div>

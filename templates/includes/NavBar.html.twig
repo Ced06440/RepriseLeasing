@@ -8,8 +8,7 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a class="active" href="index.html">Accueil</a></li>
-                                        <li><a href="#">Annonces</a></li>
+                                        <li><a class="active" href="{{ path('app_home_page') }}">Accueil</a></li>
                                         <li><a href="#">En savoir plus<i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="#">Comprendre le leasing</a></li>
@@ -23,20 +22,20 @@
                         </div>
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo-img">
-                                <a href={{ path('app_home_page') }}>
-                                    <img src={{asset('assets/image/logo/LogoHeader1.png')}} alt="" style="width:14em">
+                                <a href="{{ path('app_home_page') }}">
+                                    <img src={{asset('assets/image/logo/LogoHeader2.png')}} alt="" style="width:18em">
                                 </a>
                             </div>
                         </div>
                         <div class="col-xl-5 col-lg-4 d-none d-lg-block mr-4">
                             <div class="book_room">
                                 <div class="d-none d-lg-block me-5">
-                                    <a href='{{ path('app_deposer_annonce') }}'><button class="btn btn-warning mt-3 btn-lg">Déposez votre annonce gratuitement</button></a>
+                                    <a href="{{ path('app_deposer_annonce') }}"><button class="btn btn-warning mt-3 btn-lg">Déposez votre annonce gratuitement</button></a>
                                 </div>
                                 <div class="socail_links">
                                     <ul>
                                     {% if app.user %}
-                                        <li>
+                                        <li class="p-3">
                                             <a href="{{ path('app_account', {'id': app.user.id })}}" title="Mon compte" alt="Mon compte">
                                                 <svg xmlns="http://www.w3.org/2000/svg" 
                                                 width="35" 
@@ -47,6 +46,7 @@
                                                     <path d="M5 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm4-2.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5ZM9 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 9 8Zm1 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5Z"/>
                                                     <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H8.96c.026-.163.04-.33.04-.5C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1.006 1.006 0 0 1 1 12V4Z"/>
                                                 </svg>
+                                                <p class="text-center pt-1">Mon compte</p>
                                             </a>
                                         </li>
                                         <li>
@@ -60,11 +60,12 @@
                                                     <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
                                                     <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
                                                 </svg>
+                                                <p class="text-center pt-1">Déconnexion</p>
                                             </a>
                                         </li>
                                         {% else %}
-                                        <li>
-                                            <a href="{{ path('app_register') }}" title="S'inscrire" alt="S'inscire">
+                                        <li class="p-3">
+                                            <a href="{{ path('app_register') }}" title="S'inscrire" alt="S'inscrire">
                                                 <svg xmlns="http://www.w3.org/2000/svg" 
                                                 width="35" 
                                                 height="35" 
@@ -74,6 +75,7 @@
                                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                                                     <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                                                 </svg>
+                                                <p class="text-center pt-1">S'inscrire</p>
                                             </a>
                                         </li>
                                         <li>
@@ -87,14 +89,19 @@
                                                     <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
                                                     <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
                                                 </svg>
+                                                <p class="text-center pt-1">Se connecter</p>
                                             </a>
                                         </li>
                                         {% endif %}
                                     </ul>
                                 </div>
-
                             </div>
                         </div>
+                        {% for message in app.flashes('message') %}
+                            <div class="p-3 my-2 rounded-2 alert alert-success">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
                         <div class="col-12">
                             <div class="mobile_menu d-block d-lg-none"></div>
                         </div>

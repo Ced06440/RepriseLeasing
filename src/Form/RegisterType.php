@@ -20,38 +20,62 @@ class RegisterType extends AbstractType
     {
         $builder
             ->add('firstName', TextType::class, [
-                'label' => 'Votre prénom',
+                "label" => false,
+                "attr" => [
+                    'placeholder' => 'Votre prénom',
+                ],
                 'constraints' => new Length([
                     'min' => 2,
                     'max' =>30
                 ])
             ])
             ->add('lastName', TextType::class, [
-                'label' => 'Votre nom',
+                'label' => false,
+                "attr" => [
+                    'placeholder' => 'Votre nom',
+                ],
                 'constraints' => new Length([
                     'min' => 2,
                     'max' =>30
                 ])
             ])
             ->add('phone', NumberType::class, [
-                'label' => 'Votre numéro de téléphone',
+                'label' => false,
+                "attr" => [
+                    'placeholder' => 'Votre numéro de téléphone',
+                ],
             ])
             ->add('email', EmailType::class, [
-                'label' => 'Votre adresse Email',
+                'label' => false,
+                "attr" => [
+                    'placeholder' => 'Votre adresse Email',
+                ],
             ])
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'invalid_message' => 'Vos mots de passes ne sont pas identiques',
                 'required' => true,
                 'first_options' => [
-                    'label' => 'Votre mot de passe'
+                    'label' => false,
+                    "attr" => [
+                        'placeholder' => 'Votre mot de passe',
+                    ],
                 ],
                 'second_options' => [
-                    'label' => 'Veuillez resaisir votre mot de passe'
+                    'label' => false,
+                    "attr" => [
+                        'placeholder' => 'Veuillez resaisir votre mot de passe',
+                    ],
+                ],
+                "attr" => [
+                    'placeholder' => 'Veuillez resaisir votre mot de passe',
                 ],
             ])
             ->add('submit', SubmitType::class, [
-                'label' => "S'inscrire"
+                'label' => "S'inscrire",
+                "attr" => [
+                    'class' => 'btn btn-primary align-items-center',
+                ]
             ])
         ;
     }

@@ -5,7 +5,7 @@
 {% block content %}
 
 	<div class="slider_area_register">
-			<div class="single_slider_register  d-flex align-items-center justify-content-center slider_bg_register">
+			<div class="single_slider_register d-flex align-items-center justify-content-center slider_bg_register">
 				<div class="container">
 					<div class="row">
 						<div class="col-xl-12">
@@ -19,7 +19,39 @@
 			</div>
 		</div>
 	</div>
+{{ form_start(form) }}
+	<div class="container align-items-center">
+		<div class="col-xl-6">
+			<div class="row">
+				<div class="col-xl-6 mt-3 p-2">
+					{{ form_widget(form.firstName) }}
+				</div>
+				<div class="col-xl-6 mt-3 p-2">
+					{{ form_widget(form.lastName) }}
+				</div>
+			</div>
 
-    {{ form(form) }}
+			<div class="row">
+				<div class="col-xl-6 mt-1 p-2">
+					{{ form_widget(form.phone) }}
+				</div>
+				<div class="col-xl-6 mt-1 p-2">
+					{{ form_widget(form.email) }}
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xl-12 mt-1 p-2">
+					{{ form_widget(form.password) }}
+				</div>
+			</div>
+
+			<div class="col-xl-12 text-center mb-2">
+				{{ form_widget(form.submit) }}
+			</div>
+		</div>
+
+	</div>
+{{ form_end(form) }}
 
 {% endblock %}

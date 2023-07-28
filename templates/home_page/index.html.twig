@@ -16,7 +16,7 @@
 							<div class="slider_text text-center">
 								<h3>Reprenez le contrôle de votre leasing</h3>
 								<p>Reprise de leasing est là pour vous aider à trouver une solution rapide et efficace.</p>
-								<button class="btn btn-warning mt-3 btn-lg">Déposez votre annonce gratuitement</button>
+								<a href="{{ path('app_deposer_annonce') }}"<button class="btn btn-warning mt-3 btn-lg">Déposez votre annonce gratuitement</button></a>
 							</div>
 						</div>
 					</div>
@@ -83,61 +83,9 @@
 		</div>
 		<div class="container">
 			<div class="row">
-				<div class="input-group mb-3">
-
-					<div class="col-xl-2 m-2">
-						<input type="text" class="form-control" placeholder="Recherche" aria-label="Username" aria-describedby="basic-addon1">
-					</div>
-
-					<div class="col-xl-1 m-2">
-						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-							<label class="form-check-label" for="flexCheckDefault">
-								Climatisation
-							</label>
-						</div>
-
-						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-							<label class="form-check-label" for="flexCheckDefault">
-								Essence
-							</label>
-						</div>
-
-						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-							<label class="form-check-label" for="flexCheckDefault">
-								Gasoil
-							</label>
-						</div>
-					</div>
-
-					<div class="col-xl-2 m-2">
-						<select class="form-select form-select-lg" id="inputGroupSelect01">
-							<option selected>Marque</option>
-							<option value="1">Bmw</option>
-							<option value="2">Mercedes</option>
-							<option value="3">Renault</option>
-						</select>
-					</div>
-
-					<div class="col-xl-2 m-2">
-						<select class="form-select form-select-lg	" id="inputGroupSelect01">
-							<option selected>Modéles</option>
-							<option value="1">Bmw</option>
-							<option value="2">Mercedes</option>
-							<option value="3">Renault</option>
-						</select>
-					</div>
-
-					<div class="col-xl-2 m-2">
-						<input type="text" class="form-control" placeholder="Localisation" aria-label="Username" aria-describedby="basic-addon1">
-					</div>
-
-					<div class="col-xl-1 m-2">
-						<button type="button" class="btn btn-warning" placeholder="Localisation">Chercher</button>
-					</div>
-				</div>
+				{{ form_start(form) }}
+				<button class="btn btn-primary">Rechercher</button>
+				{{ form_end(form) }}
 			</div>
 		</div>
 
@@ -146,7 +94,6 @@
 
 				{% for annonces in annonces %}
 					{% if annonces.active == 1 %}
-						{% if annonces.bestOffer == 1 %}
 
 					<div id="ads" class="col-md-4">
 						<div class="card rounded p-3">
@@ -159,18 +106,17 @@
 										LDD 
 									{% endif %}
 								</span>
-								<img class="img-fluid" src="./assets/image/annonce/voiture3.jpg" alt="Alternate Text"/>
+								<img class="img-fluid" src="/uploads/imageAvant/{{ annonces.imageAvant }}" alt="Alternate Text" style="width:500px; height:300px"/>
 							</div>
 							<h3 class="text-center">{{ annonces.marque }} {{annonces.modele}}</h3>
 							<div class="card-image-overlay m-auto text-center">
 								<span class="card-detail-badge p-2">{{annonces.loyerMensuel}}€/mois</span>
 								<span class="card-detail-badge p-2">13500€</span>
-								<btn class="btn btn-warning p-2">Voir la voiture</btn>
+								<btn class="btn btn-warning p-2"><a href="{{ path('app_annonce', {'id' : annonces.id }) }}">Voir la voiture</a></btn>
 							</div>
 						</div>
 					</div>
 						{% endif %}
-					{% endif %}
 				{% endfor %}
 
 			</div>

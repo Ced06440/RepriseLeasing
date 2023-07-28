@@ -3,7 +3,10 @@
 namespace App\Repository;
 
 use App\Entity\Annonce;
+use App\Entity\PropertySearch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -39,28 +42,21 @@ class AnnonceRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Annonce[] Returns an array of Annonce objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('a')
-//            ->andWhere('a.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('a.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function findAllVisible(PropertySearch $search) : Query
+    {
+        $query =  $this->findVisibleQuery();
 
-//    public function findOneBySomeField($value): ?Annonce
-//    {
-//        return $this->createQueryBuilder('a')
-//            ->andWhere('a.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+        if($search->getMinKms()) {
+            $query = $query
+                            ->where('p.kmsParcourus >= :maxKms')
+                            ->setParameter('maxKms', $search->getMinKms());
+        }
+        return $query->getQuery();
+    }
+
+    private function findVisibleQuery() :QueryBuilder {
+        return $this->createQueryBuilder('p')
+                    ->where('p.kmParcourus = false');
+    }
+    
 }

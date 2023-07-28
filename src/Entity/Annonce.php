@@ -130,6 +130,12 @@ class Annonce
     #[ORM\JoinColumn(nullable: false)]
     private ?User $droppedUser = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $optionAchat = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $imageInterieur = null;
+
 
     public function getId(): ?int
     {
@@ -581,4 +587,31 @@ class Annonce
         return $this;
     }
 
+    public function getOptionAchat(): ?string
+    {
+        return $this->optionAchat;
+    }
+
+    public function setOptionAchat(?string $optionAchat): self
+    {
+        $this->optionAchat = $optionAchat;
+
+        return $this;
+    }
+
+    public function getImageInterieur(): ?string
+    {
+        return $this->imageInterieur;
+    }
+
+    public function setImageInterieur(string $imageInterieur): self
+    {
+        $this->imageInterieur = $imageInterieur;
+
+        return $this;
+    }
+    public function __toString()
+    {
+        return $this->energie;
+    }
 }
